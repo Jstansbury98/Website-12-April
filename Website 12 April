@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UK Youth Info Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #faf9f5; }
+    header { background: #005ea5; color: white; padding: 1.5em 1em; }
+    header h1 { margin: 0; }
+    nav { background: #003668; padding: 0.5em 1em; }
+    nav a { color: #fff; margin-right: 1.5em; text-decoration: none; font-weight: bold; }
+    .container { max-width: 900px; margin: 2em auto; padding: 2em; background: #fff; border-radius: 8px; }
+    .card { background: #e0eaf3; border-radius: 6px; padding: 1.5em; margin-bottom: 1em; }
+    h2 { color: #005ea5; }
+    .searchbox { width: 100%; padding: 0.6em; margin-bottom: 1em; border: 1px solid #888; border-radius: 6px; }
+    footer { text-align: center; padding: 1em; background: #00243a; color: #fff; margin-top: 2em; }
+    @media (max-width: 600px) {
+      nav, .container { padding: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Youth UK Info Portal</h1>
+  </header>
+  <nav>
+    <a href="#health">Health</a>
+    <a href="#education">Education</a>
+    <a href="#jobs">Jobs & Apprenticeships</a>
+    <a href="#sports">Sports</a>
+    <a href="#support">Support</a>
+  </nav>
+  <div class="container">
+    <h2>Welcome!</h2>
+    <p>Find trusted information, services, and opportunities for young people in the UK.</p>
+    
+    <input class="searchbox" id="search" placeholder="Search topics (e.g., 'mental health', 'apprenticeships')">
+    
+    <div id="results">
+      <!-- Cards will appear here -->
+      <div class="card" id="health">
+        <h3>Health & Wellbeing</h3>
+        <ul>
+          <li><a href="https://www.nhs.uk/mental-health/" target="_blank">Mental Health - NHS</a></li>
+          <li><a href="https://www.childline.org.uk/" target="_blank">Childline Support</a></li>
+        </ul>
+      </div>
+      <div class="card" id="education">
+        <h3>Education</h3>
+        <ul>
+          <li><a href="https://www.gov.uk/education" target="_blank">UK Education Info - GOV.UK</a></li>
+          <li><a href="https://www.ucas.com/" target="_blank">UCAS – University Admissions</a></li>
+        </ul>
+      </div>
+      <div class="card" id="jobs">
+        <h3>Jobs & Apprenticeships</h3>
+        <ul>
+          <li><a href="https://www.apprenticeships.gov.uk/" target="_blank">Find an Apprenticeship</a></li>
+          <li><a href="https://nationalcareers.service.gov.uk/" target="_blank">National Careers Service</a></li>
+        </ul>
+      </div>
+      <div class="card" id="sports">
+        <h3>Sports & Clubs</h3>
+        <ul>
+          <li><a href="https://schoolfootball.net/" target="_blank">School Football Directory</a></li>
+          <li><a href="https://www.sportengland.org/" target="_blank">Sport England</a></li>
+        </ul>
+      </div>
+      <div class="card" id="support">
+        <h3>Support & Advice</h3>
+        <ul>
+          <li><a href="https://www.citizensadvice.org.uk/" target="_blank">Citizens Advice</a></li>
+          <li><a href="https://www.themix.org.uk/" target="_blank">The Mix – Under 25s Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2024 Youth UK Info Portal | Inspired by [GDS-Youth-Homepage-Website on GitHub](https://github.com/t1ger112/GDS-Youth-Homepage-Website)
+  </footer>
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    document.getElementById('search').addEventListener('input', function() {
+      let val = this.value.toLowerCase();
+      cards.forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(val) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
